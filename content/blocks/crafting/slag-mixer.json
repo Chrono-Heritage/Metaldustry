@@ -1,0 +1,52 @@
+{
+    "type": "GenericCrafter",
+    "itemCapacity": 60,
+    "liquidCapacity": 120,
+    "health": 450,
+    "size": 2,
+    "hasPower": true,
+    "hasItems": true,
+    "hasLiquids": true,
+    "craftTime": 60,
+    "buildCostMultiplier": 0.5,
+    "consumes": {
+      "power": 1.5,
+      "items":{
+        "items": [
+          "copper/3"
+        ]
+      }
+    },
+
+    "outputLiquid": "slag/0.05",
+    "category": "crafting",
+    "research":{
+      "parent": "Metaldustry",
+      "requirements":[
+          "copper/3000",
+          "silicon/1500",
+          "graphite/1500",
+          "metaglass/650"
+      ]
+    },
+    "requirements": [
+      "copper/350",
+      "silicon/125",
+      "graphite/125",
+      "metaglass/75"
+    ],
+    "drawer": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-spinner",
+        "rotateSpeed": 5
+      },
+      {
+        "type": "DrawDefault"
+      }
+    ]
+  }
