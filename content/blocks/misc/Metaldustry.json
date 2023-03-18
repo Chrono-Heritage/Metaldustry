@@ -1,0 +1,16 @@
+{
+    "type": "Wall",
+    "health": 10,
+    "size": 2,
+    "placeablePlayer": false,
+    "requirements": [
+      "copper/1"
+    ],
+    "category": "defense",
+    "research":{
+        "parent": "core-shard",
+        "requirements":[
+        ]
+      }
+}
+    

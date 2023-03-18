@@ -1,0 +1,20 @@
+{
+    "type": "Conduit",
+    "health": 120,
+    "liquidCapacity": 30,
+    "liquidPressure": 1.5,
+    "category": "liquid",
+    "research":{
+      "parent": "Metaldustry",
+      "requirements":[
+          "tin/200",
+          "metaglass/200",
+          "aluminium/200"
+      ]
+    },
+    "requirements": [
+        "tin/1",
+        "metaglass/1",
+        "aluminium/1"
+    ]
+}

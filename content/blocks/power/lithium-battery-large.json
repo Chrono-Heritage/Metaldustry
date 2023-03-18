@@ -1,0 +1,28 @@
+{
+    "type": "Battery",
+    "size": 4,
+    "health": 1250,
+    "consumes": {
+        "powerBuffered": 87500
+      },
+    "category": "power",
+    "research":{
+      "parent": "Metaldustry",
+      "requirements":[
+        "copper/3000",
+        "lead/2500",
+        "graphite/2000",
+        "aluminium/1500",
+        "tin/1500",
+        "lithium/750"
+      ]
+    },
+    "requirements": [
+      "copper/150",
+      "lead/100",
+      "graphite/75",
+      "aluminium/65",
+      "tin/65",
+      "lithium/50"
+    ]
+}

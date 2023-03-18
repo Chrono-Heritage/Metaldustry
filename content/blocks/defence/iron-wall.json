@@ -1,0 +1,16 @@
+{
+    "type": "Wall",
+    "health": 500,
+    "size": 1,
+    "category": "defense",
+    "research":{
+        "parent": "Metaldustry",
+        "requirements":[
+            "iron/200"
+        ]
+      },
+      "requirements": [
+        "iron/10"
+      ]
+}
+    

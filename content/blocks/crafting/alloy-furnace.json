@@ -1,0 +1,83 @@
+{
+    "type": "multicraft.MultiCrafter",
+    "itemCapacity": 60,
+    "health": 650,
+    "size": 3,
+    "hasPower": true,
+    "hasItems": true,
+    "buildCostMultiplier": 0.85,
+    "recipes": 
+    [
+    {
+      "input": {
+        "power": 1.25,
+        "items": [
+        "chrono-metaldustry-iron/1",
+        "coal/3"
+      ]
+    },
+      "output": {
+        "items": [
+          "chrono-metaldustry-steel/2"
+        ]
+      },
+      "craftTime": 60
+    },
+    {
+      "input": {
+        "power": 1.0,
+        "items": [
+            "copper/3",
+            "chrono-metaldustry-tin/1"
+      ]
+    },
+      "output": {
+        "items": [
+          "chrono-metaldustry-bronze/4"
+        ]
+      },
+      "craftTime": 90
+    },
+    {
+        "input": {
+          "power": 1.15,
+          "items": [
+              "copper/1",
+              "chrono-metaldustry-nickel/1"
+        ]
+        },
+        "output": {
+          "items": [
+            "chrono-metaldustry-bronze/2"
+          ]
+        },
+        "craftTime": 60
+      }
+    ],
+    "category": "crafting",
+    "research":{
+      "parent": "Metaldustry",
+      "requirements":[
+          "copper/750",
+          "aluminium/500",
+          "tin/500",
+          "graphite/200",
+          "silicon/200"
+      ]
+    },
+    "requirements": [
+      "copper/75",
+      "aluminium/50",
+      "tin/50",
+      "graphite/35",
+      "silicon/35"
+    ],
+  "drawer": [
+        {
+          "type": "DrawDefault"
+        },
+        {
+          "type": "DrawFlame"
+        }
+      ]
+}

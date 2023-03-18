@@ -1,0 +1,20 @@
+{
+    "type": "Duct",
+    "health": 120,
+    "itemCapacity": 5,
+    "speed": 4,
+    "category": "distribution",
+    "research":{
+      "parent": "Metaldustry",
+      "requirements":[
+          "copper/200",
+          "metaglass/200",
+          "tin/200"
+      ]
+    },
+    "requirements": [
+        "copper/1",
+        "metaglass/1",
+        "tin/1"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "type": "Wall",
+    "health": 3375,
+    "size": 2,
+    "category": "defense",
+    "research":{
+        "parent": "steel-wall",
+        "requirements":[
+          "steel/800"
+        ]
+      },
+      "requirements": [
+        "steel/40"
+      ]
+}
+    

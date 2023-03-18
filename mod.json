@@ -1,0 +1,11 @@
+{
+    "name": "chrono-metaldustry",
+    "displayName": "Metaldustry",
+    "author": "Chrono",
+    "description": "A mod that add more metals and industry blocks.",
+    "dependencies": [
+        "multi-crafter"
+    ],
+    "version": "v.0.1",
+    "minGameVersion": "142"
+    }

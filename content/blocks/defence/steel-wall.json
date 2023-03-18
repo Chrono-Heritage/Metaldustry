@@ -1,0 +1,16 @@
+{
+    "type": "Wall",
+    "health": 750,
+    "size": 1,
+    "category": "defense",
+    "research":{
+        "parent": "bronze-wall",
+        "requirements":[
+          "steel/200"
+        ]
+      },
+      "requirements": [
+        "steel/10"
+      ]
+}
+    
