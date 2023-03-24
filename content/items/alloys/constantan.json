@@ -2,5 +2,6 @@
     "type": "item",
     "charge": 0.75,
     "cost": 1.2,
-    "color": "FAD37C"
+    "color": "FAD37C",
+    "research": "nickel"
 }

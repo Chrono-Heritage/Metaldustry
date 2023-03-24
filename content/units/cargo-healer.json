@@ -1,0 +1,44 @@
+{
+    "type": "flying",
+    "isEnemy": false,
+    "flying": true,
+    "canHeal": true,
+    "speed": 4.4,
+    "rotateSpeed": 30,
+    "accel": 0.4,
+    "itemCapacity": 200,
+    "health": 450,
+    "hitSize": 16,
+    "armor": 2,
+    "drag": 0.2,
+    "circleTarget": false,
+    "engineOffset": 11,
+    "weapons": [
+        {
+            "type": "RepairBeamWeapon",
+            "widthSinMag": 0.11,
+            "reload": 20,
+            "shootY": 0,
+            "beamWidth": 0.7,
+            "repairSpeed": 2.0,
+            "fractionRepairSpeed": 0.06,
+            "aimDst": 0,
+            "shootCone": 15,
+            "targetUnits": true,
+            "targetBuildings": true,
+            "autoTarget": true,
+            "controllable": true,
+            "laserColor": "accent",
+            "healColor": "accent",
+            "x": 0,
+            "y": 5,
+            "mirror": false,
+            "rotate": true,
+            "bullet": {
+                "maxRange": 60
+            },
+                "buildingDamageMultiplier": 0.01,
+                "collidesTeam": false
+            }
+    ]
+}

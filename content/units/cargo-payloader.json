@@ -1,0 +1,16 @@
+{
+    "type": "payload",
+    "isEnemy": false,
+    "flying": true,
+    "payloadCapacity": 100.0,
+    "speed": 4.5,
+    "rotateSpeed": 30,
+    "accel": 0.4,
+    "itemCapacity": 350,
+    "health": 450,
+    "hitSize": 16,
+    "armor": 2,
+    "drag": 0.2,
+    "circleTarget": false,
+    "engineOffset": 11
+}

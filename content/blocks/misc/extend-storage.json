@@ -1,0 +1,25 @@
+{
+    "type": "StorageBlock",
+    "health": 1250,
+    "size": 5,
+    "itemCapacity": 4000,
+    "buildCostMultiplier": 0.55,
+    "category": "effect",
+    "research":{
+      "parent": "armored-vault",
+      "requirements":[
+          "copper/3000",
+          "tin/2500",
+          "lead/2500",
+          "iron/1750",
+          "nickel/1750"
+      ]
+    },
+    "requirements": [
+      "copper/200",
+      "tin/150",
+      "lead/150",
+      "iron/125",
+      "nickel/125"
+    ]
+}

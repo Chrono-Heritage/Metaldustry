@@ -2,5 +2,6 @@
     "type": "item",
     "charge": 0.5,
     "cost": 1.5,
-    "color": "A6A6A6"
+    "color": "A6A6A6",
+    "research": "iron"
 }

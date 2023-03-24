@@ -3,5 +3,6 @@
     "hardness": 3,
     "charge": 0.1,
     "cost": 1.0,
-    "color": "DBF0F3"
+    "color": "DBF0F3",
+    "research": "nickel"
 }

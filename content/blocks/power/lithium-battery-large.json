@@ -2,12 +2,13 @@
     "type": "Battery",
     "size": 4,
     "health": 1250,
+    "buildCostMultiplier": 0.75,
     "consumes": {
         "powerBuffered": 87500
       },
     "category": "power",
     "research":{
-      "parent": "Metaldustry",
+      "parent": "lithium-battery",
       "requirements":[
         "copper/3000",
         "lead/2500",

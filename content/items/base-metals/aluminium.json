@@ -3,5 +3,6 @@
     "hardness": 2,
     "charge": 0.5,
     "cost": 0.7,
-    "color": "BDC7CC"
+    "color": "BDC7CC",
+    "research": "Metaldustry"
 }

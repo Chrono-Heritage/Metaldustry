@@ -1,0 +1,90 @@
+{
+    "type": "ItemTurret",
+    "health": 1050,
+    "size": 4,
+    "liquidCapacity": 60,
+    "buildCostMultiplier": 0.75,
+    "reload": 200,
+    "maxammo": 10,
+    "range": 800,
+    "rotateSpeed": 10,
+    "recoil": 5,
+    "recoilTime": 30,
+    "inaccuracy": 0,
+    "shootSound": "shootSmite",
+    "shootCone": 30,
+    "shoot":{
+        "type": "ShootSpread",
+        "shots": 1,
+        "spread": 0
+        },
+    "ammoTypes": {
+        ".50-bmg": {
+            "type": "PointLaserBulletType",
+            "speed": 50,
+            "width": 4,
+            "scaleLife": true,
+            "smokeEffect": "shootBigSmoke",
+            "buildingDamageMultiplier": 0.5,
+            "damage": 4500,
+            "pierceArmor": true,
+            "ammoMultiplier": 1
+        },
+        ".50-bmg-he": {
+            "type": "PointLaserBulletType",
+            "speed": 50,
+            "splashDamage": 4000,
+            "splashDamageRadius": 40,
+            "scaleLife": true,
+            "smokeEffect": "shootBigSmoke",
+            "hitEffect": "explosion",
+            "status": "burning",
+            "statusDuration": 600,
+            "buildingDamageMultiplier": 0.5,
+            "pierceArmor": true,
+            "ammoMultiplier": 1
+
+        },
+        ".50-bmg-nuclear": {
+            "type": "PointLaserBulletType",
+            "speed": 50,
+            "splashDamage": 3750,
+            "splashDamageRadius": 56,
+            "scaleLife": true,
+            "smokeEffect": "shootBigSmoke",
+            "hitEffect": "blastExplosion",
+            "status": "chrono-nucleardustry-radiation",
+            "statusDuration": 600,
+            "buildingDamageMultiplier": 0.5,
+            "pierceArmor": true,
+            "ammoMultiplier": 1
+
+        }
+    },
+    "coolantMultiplier": 0.4,
+    "consumes":{
+        "coolant":{
+            "amount":0.5
+        }
+    },
+    "category": "turret",
+    "research":{
+        "parent": "Metaldustry",
+        "requirements":[
+            "copper/2750",
+            "lead/2500",
+            "aluminium/1750",
+            "tin/1750",
+            "steel/1250",
+            "constantan/1250"
+        ]
+      },
+    "requirements": [    
+        "copper/175",
+        "lead/150",
+        "aluminium/125",
+        "tin/125",
+        "steel/75",
+        "constantan/75"
+    ]
+}

@@ -3,5 +3,6 @@
     "hardness": 3,
     "charge": 0.1,
     "cost": 1.1,
-    "color": "C6C38B"
+    "color": "C6C38B",
+    "research": "lithium"
 }

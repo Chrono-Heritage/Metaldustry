@@ -2,7 +2,7 @@
     "type": "Duct",
     "health": 120,
     "itemCapacity": 5,
-    "speed": 4,
+    "speed": 3.5,
     "category": "distribution",
     "research":{
       "parent": "Metaldustry",

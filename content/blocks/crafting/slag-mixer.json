@@ -13,27 +13,30 @@
       "power": 1.5,
       "items":{
         "items": [
-          "copper/3"
+          "copper/2",
+          "lead/2"
         ]
       }
     },
 
-    "outputLiquid": "slag/0.05",
+    "outputLiquid": "slag/0.1",
     "category": "crafting",
     "research":{
       "parent": "Metaldustry",
       "requirements":[
           "copper/3000",
+          "lead/2500",
           "silicon/1500",
           "graphite/1500",
           "metaglass/650"
       ]
     },
     "requirements": [
-      "copper/350",
-      "silicon/125",
-      "graphite/125",
-      "metaglass/75"
+      "copper/200",
+      "lead/125",
+      "silicon/75",
+      "graphite/75",
+      "metaglass/45"
     ],
     "drawer": [
       {

@@ -1,7 +1,7 @@
 {
     "type": "multicraft.MultiCrafter",
     "itemCapacity": 60,
-    "health": 650,
+    "health": 950,
     "size": 3,
     "buildCostMultiplier": 1.25,
     "hasPower": true,
@@ -10,58 +10,67 @@
     [
     {
       "input": {
-        "power": 1.25,
+        "power": 2.0,
         "items": [
-        "chrono-metaldustry-iron/1",
-        "coal/3"
+        "chrono-metaldustry-steel/8",
+        "chrono-metaldustry-nickel/12",
+        "titanium/20",
+        "copper/30"
       ]
     },
       "output": {
         "items": [
-          "chrono-metaldustry-steel/2"
+          "chrono-metaldustry-.50-bmg/8"
         ]
       },
-      "craftTime": 60
+      "craftTime": 180
     },
     {
       "input": {
-        "power": 1.0,
+        "power": 2.5,
         "items": [
-            "copper/3",
-            "chrono-metaldustry-tin/1"
+            "chrono-metaldustry-steel/8",
+            "chrono-metaldustry-nickel/12",
+            "titanium/20",
+            "copper/30",
+            "blast-compound/12"
       ]
     },
       "output": {
         "items": [
-          "chrono-metaldustry-bronze/4"
+          "chrono-metaldustry-.50-bmg-he/8"
         ]
       },
-      "craftTime": 90
+      "craftTime": 240
     },
     {
         "input": {
-          "power": 1.15,
+          "power": 3.0,
           "items": [
-              "copper/1",
-              "chrono-metaldustry-nickel/1"
+              "chrono-metaldustry-steel/8",
+              "chrono-metaldustry-nickel/12",
+              "titanium/20",
+              "copper/30",
+              "blast-compound/8",
+              "thorium/10"
         ]
-        },
+      },
         "output": {
           "items": [
-            "chrono-metaldustry-constantan/2"
+            "chrono-metaldustry-.50-bmg-nuclear/8"
           ]
         },
-        "craftTime": 60
+        "craftTime": 240
       }
     ],
     "category": "crafting",
     "research":{
-      "parent": "slag-mixer",
+      "parent": "Metaldustry",
       "requirements":[
           "copper/750",
           "aluminium/500",
           "tin/500",
-          "graphite/200",
+          "constantan/200",
           "silicon/200"
       ]
     },
@@ -69,7 +78,7 @@
       "copper/75",
       "aluminium/50",
       "tin/50",
-      "graphite/35",
+      "constantan/35",
       "silicon/35"
     ],
   "drawer": [
