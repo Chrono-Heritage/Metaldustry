@@ -7,5 +7,7 @@
         "multi-crafter"
     ],
     "version": "v.0.1",
-    "minGameVersion": "142"
+    "minGameVersion": "142",
+    "main": "metd.metdLoader",
+    "java": true
     }
