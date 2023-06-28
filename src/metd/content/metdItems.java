@@ -11,7 +11,7 @@ public class metdItems {
     /* Alloys */
     bronze, constantan, steel,
     /* Ammo */
-    bmgHE, bmgNuclear, bmg,
+    bmgHE, bmgNuclear, bmg, machGunAmmo,
     /* Others */
     stone,
     /* Ores */
@@ -62,10 +62,13 @@ public class metdItems {
         }};  
         /* Ammo */
         bmg  = new Item(".50-bmg", Color.valueOf("3F3F3F")){{
+            explosiveness = 0.1f;
+            flammability = 0.1f;
             buildable = false;
         }};
         bmgHE  = new Item(".50-bmg-he", Color.valueOf("FF0F33")){{
             explosiveness = 1.0f;
+            flammability = 0.5f;
             buildable = false;
         }};  
         bmgNuclear  = new Item(".50-bmg-nuclear", Color.valueOf("33BF31")){{
@@ -74,6 +77,11 @@ public class metdItems {
             radioactivity = 1.0f;
             buildable = false;
         }};  
+        machGunAmmo = new Item("machine-gun-ammo", Color.valueOf("3F3F3F")){{
+            explosiveness = 0.1f;
+            flammability = 0.1f;
+            buildable = false;
+        }};
         /* Others */
         stone  = new Item("stone", Color.valueOf("8C8C8C")){{
             cost = 0.1f;

@@ -7,6 +7,7 @@ import metd.content.metdItems.*;
 import metd.content.metdLiquids.*;
 import metd.content.metdStatusEffects.*;
 import metd.content.metdBlocks.*;
+import metd.content.metdUnitTypes.*;
 import metd.content.*;
 import mindustry.*;
 import mindustry.content.*;
@@ -44,17 +45,10 @@ import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import mindustry.world.blocks.defense.Wall;
-import mindustry.world.blocks.liquid.Conduit;
-import mindustry.world.blocks.power.SolarGenerator;
-import mindustry.world.blocks.storage.Unloader;
-import mindustry.world.blocks.units.UnitFactory;
-import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
-import mindustry.type.Category;
 import mindustry.world.Block;
-import mindustry.world.blocks.defense.turrets.ItemTurret;
 import multicraft.*;
 
 
@@ -65,6 +59,7 @@ import static mindustry.content.StatusEffects.*;
 import static metd.content.metdItems.*;
 import static metd.content.metdLiquids.*;
 import static metd.content.metdStatusEffects.*;
+import static metd.content.metdUnitTypes.*;
 import static mindustry.type.ItemStack.*;
 
 public class metdBlocks {
@@ -79,12 +74,14 @@ public class metdBlocks {
     /* Environment */
     oreIron, oreAluminium, oreTin,
     /* Misc */
-    extendStorage, Metaldustry,
+    extendTank, extendStorage, Metaldustry,
     /* Power */
-    heatGenerator, lithiumBattery, lithiumBatteryLarge, turbineGenerator,
+    heatGenerator, lithiumBattery, lithiumBatteryLarge,
     /* Production */
     /* Turret */
-    antiMaterielSniper, heatwave;
+    antiMaterielSniper, machineGun, heatwave,
+    /* Units */
+    metalUnitFactory, metalT2Reconstructor, metalT3Reconstructor;
     public static void load() {
         alloyFurnance = new MultiCrafter("alloy-furnace"){{
             requirements(Category.crafting, with(copper, 75, aluminium, 50, tin, 50, graphite,35, silicon,35));
@@ -181,6 +178,17 @@ public class metdBlocks {
                     Seq.with()
                 ),
                 240f
+            ),
+            new Recipe(
+                new IOEntry(
+                    Seq.with(ItemStack.with(lead,20, steel,12, iron,12, bronze,10)),
+                    Seq.with()
+                ),
+                new IOEntry(
+                    Seq.with(ItemStack.with(machGunAmmo, 5)),
+                    Seq.with()
+                ),
+                300f
             )
         );
     }};
@@ -202,11 +210,11 @@ public class metdBlocks {
         ambientSoundVolume = 0.08f;
         regionRotated1 = 2;
         craftTime = 60f * 2f;
-        heatOutput = 8f;
+        heatOutput = 12f;
     }};
     metalFormer = new MultiCrafter("metal-former"){{
-        requirements(Category.crafting, with(copper, 85, tin, 35, graphite,20, silicon,20));
-        researchCost = with(copper,850, silicon,550, tin,450, graphite,200, silicon,200);
+        requirements(Category.crafting, with(copper, 85, titanium, 35, graphite,20, silicon,20));
+        researchCost = with(copper,850, silicon,550, titanium,450, graphite,200, silicon,200);
         itemCapacity = 60;
         liquidCapacity = 120;
         buildCostMultiplier = 1.75f;
@@ -450,9 +458,18 @@ public class metdBlocks {
         localizedName = itemDrop.localizedName;
     }};
     /* Misc */
+    extendTank = new LiquidRouter("extend-tank"){{
+        requirements(Category.liquid, with(copper, 200, tin,120, steel,80, aluminium,40, metaglass, 30));
+        researchCost = with(copper, 2000, tin,1250, steel,850, aluminium,650, metaglass, 450);
+        health = 1250;
+        liquidCapacity = 5600f;
+        size = 5;
+        solid = true;
+        buildCostMultiplier = 0.65f;
+    }};
     extendStorage = new StorageBlock("extend-storage"){{
         requirements(Category.effect, with(copper,200, tin,150, lead,150, iron,125, nickel,125));
-        researchCost = with(copper,3000, tin,2500, lead,2500, iron,1750, nickel,1750);
+        researchCost = with(copper,2000, tin,950, lead,950, iron,650, nickel,650);
         health = 1250;
         size = 5;
         itemCapacity = 4000;
@@ -498,6 +515,105 @@ public class metdBlocks {
     }};
     /* Production */
     /* Turrets */ 
+    antiMaterielSniper = new ItemTurret("anti-materiel-sniper"){{
+        requirements(Category.turret, with(copper,175, lead,150, aluminium,125, tin,125, steel,75, constantan,75));
+        researchCost = with(copper,2750, lead,2500, aluminium,1750, tin,1750, steel,1250, constantan,1250);
+        health = 1250;
+        size = 4;
+        liquidCapacity = 120;
+        buildCostMultiplier = 0.75f;
+        reload = 300f;
+        maxAmmo = 10;
+        range = 600;
+        rotateSpeed = 10f;
+        recoil = 5f;
+        shootSound = Sounds.shootSmite;
+        shootCone = 30f;
+        shoot = new ShootSpread(2,0);
+        coolant = consumeCoolant(0.5f);
+        coolantMultiplier = 0.4f;
+        ammo(
+            bmg,  new PointLaserBulletType(){{
+                speed = 100;
+                scaleLife = true;
+                smokeEffect = Fx.shootBigSmoke;
+                buildingDamageMultiplier = 0.3f;
+                damage = 2750;
+                pierceArmor = true;
+                ammoMultiplier = 1.0f;
+            }},
+            bmgHE,  new PointLaserBulletType(){{
+                speed = 100;
+                scaleLife = true;
+                smokeEffect = Fx.shootBigSmoke;
+                hitEffect = Fx.explosion;
+                status = StatusEffects.burning;
+                statusDuration = 600;
+                buildingDamageMultiplier = 0.3f;
+                damage = 2000;
+                splashDamage = 2000;
+                splashDamageRadius = 40;
+                pierceArmor = true;
+                ammoMultiplier = 1.0f;
+            }},
+            bmgNuclear,  new PointLaserBulletType(){{
+                speed = 100;
+                scaleLife = true;
+                smokeEffect = Fx.shootBigSmoke;
+                hitEffect = Fx.blastExplosion;
+                buildingDamageMultiplier = 0.3f;
+                status = radiation;
+                statusDuration = 600;
+                damage = 2000;
+                splashDamage = 1875;
+                splashDamageRadius = 56;
+                pierceArmor = true;
+                ammoMultiplier = 1.0f;
+            }}
+        );
+    }};
+    machineGun = new ItemTurret("machine-gun"){{
+        requirements(Category.turret, with(copper,105, lead,75, aluminium,55, tin,45, steel,35, constantan,35));
+        researchCost = with(copper,1550, lead,1250, aluminium,750, tin,550, steel,450, constantan,450);
+        health = 850;
+        size = 3;
+        liquidCapacity = 120;
+        buildCostMultiplier = 0.75f;
+        reload = 1f;
+        maxAmmo = 200;
+        range = 150;
+        rotateSpeed = 20f;
+        recoil = 3f;
+        shootSound = Sounds.shootAlt;
+        shootCone = 30f;
+        shoot = new ShootSpread(1,0);
+        minWarmup = 0.8f;
+        coolant = consumeCoolant(0.5f);
+        coolantMultiplier = 0.15f;            
+        drawer = new DrawTurret(){{
+            for(int i = 3; i > 0; i--){
+                parts.add(new RegionPart("-barrel-" + i){{
+                    progress = PartProgress.recoil;
+                    under = true;
+                    moveY = -2f;
+                }});
+            }
+        }};
+        ammo(
+            steel, new BasicBulletType(20f,5){{
+                width = 3f;
+                height = 11f;
+                lifetime = 10f;
+                ammoMultiplier = 5;
+            }},
+            machGunAmmo, new BasicBulletType(20f,10){{
+                width = 3f;
+                height = 11f;
+                lifetime = 10f;
+                ammoMultiplier = 3;
+            }}
+        );
+    }};
     heatwave = new LiquidTurret("heatwave"){{
         requirements(Category.turret, with(copper,95, aluminium,55, tin,55, steel,35));
         researchCost = with(copper,1050, aluminium,650, tin,550, steel,450);
@@ -531,59 +647,39 @@ public class metdBlocks {
             }}
         );
     }};
-    antiMaterielSniper = new ItemTurret("anti-materiel-sniper"){{
-        requirements(Category.turret, with(copper,175, lead,150, aluminium,125, tin,125, steel,75, constantan,75));
-        researchCost = with(copper,2750, lead,2500, aluminium,1750, tin,1750, steel,1250, constantan,1250);
+    /* Units */
+    metalUnitFactory = new UnitFactory("metal-unit-factory"){{
+        requirements(Category.units, with(copper, 225, lead, 155, iron,40, tin,40));
+        researchCost = with(copper, 850, lead, 650, iron,500, tin,500);
+        plans = Seq.with(
+            new UnitPlan(pistoler, 60f * 10, with(lead,20, iron,10, aluminium,5))
+        );
+        size = 3;
+        health = 750;
+        consumePower(0.5f);
+    }};
+    metalT2Reconstructor = new Reconstructor("metal-t2-reconstructor"){{
+        requirements(Category.units, with(copper, 325, silicon, 185, tin,165, steel,125));
+        researchCost = with(copper, 1050, silicon, 750, tin,750, steel,550);
+        size = 3;
+        consumePower(1f);
+        consumeItems(with(silicon,20, titanium, 10, steel,10));
+        health = 750;
+        constructTime = 60f * 10f;
+        upgrades.addAll(
+            new UnitType[]{pistoler, twinPistoler}
+        );
+    }};
+    metalT3Reconstructor = new Reconstructor("metal-t3-reconstructor"){{
+        requirements(Category.units, with(copper, 375, lead, 295, silicon, 225, constantan, 185, tin,185, steel,185, lithium,185));
+        researchCost = with(copper, 2150, lead, 1750, silicon, 1250, constantan, 850, tin,850, steel,650, lithium,650);
+        size = 5;
+        consumePower(3f);
+        consumeItems(with(silicon,40, constantan, 35, tin, 25, titanium, 20, steel,20));
         health = 1250;
-        size = 4;
-        liquidCapacity = 120;
-        buildCostMultiplier = 0.75f;
-        reload = 200f;
-        maxAmmo = 10;
-        range = 800;
-        rotateSpeed = 10f;
-        recoil = 5f;
-        shootSound = Sounds.shootSmite;
-        shootCone = 30f;
-        shoot = new ShootSpread(1,0);
-        coolant = consumeCoolant(0.5f);
-        coolantMultiplier = 0.4f;
-        ammo(
-            metdItems.bmg,  new PointLaserBulletType(){{
-                speed = 50;
-                scaleLife = true;
-                smokeEffect = Fx.shootBigSmoke;
-                buildingDamageMultiplier = 0.5f;
-                damage = 4500;
-                pierceArmor = true;
-                ammoMultiplier = 1.0f;
-            }},
-            metdItems.bmgHE,  new PointLaserBulletType(){{
-                speed = 50;
-                scaleLife = true;
-                smokeEffect = Fx.shootBigSmoke;
-                hitEffect = Fx.explosion;
-                status = StatusEffects.burning;
-                statusDuration = 600;
-                buildingDamageMultiplier = 0.5f;
-                splashDamage = 4000;
-                splashDamageRadius = 40;
-                pierceArmor = true;
-                ammoMultiplier = 1.0f;
-            }},
-            metdItems.bmgNuclear,  new PointLaserBulletType(){{
-                speed = 50;
-                scaleLife = true;
-                smokeEffect = Fx.shootBigSmoke;
-                hitEffect = Fx.blastExplosion;
-                buildingDamageMultiplier = 0.5f;
-                status = metdStatusEffects.radiation;
-                statusDuration = 600;
-                splashDamage = 3750;
-                splashDamageRadius = 56;
-                pierceArmor = true;
-                ammoMultiplier = 1.0f;
-            }}
+        constructTime = 60f * 20f;
+        upgrades.addAll(
+            new UnitType[]{twinPistoler, multiPistoler}
         );
     }};
 };

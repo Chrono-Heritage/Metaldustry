@@ -3,6 +3,7 @@ package metd;
 import metd.content.metdItems;
 import metd.content.metdLiquids;
 import metd.content.metdStatusEffects;
+import metd.content.metdUnitTypes;
 import metd.content.metdBlocks;
 import metd.content.metdTechTree;
 import mindustry.mod.Mod;
@@ -18,6 +19,7 @@ public class metdLoader extends Mod{
         metdStatusEffects.load();
         metdItems.load();
         metdLiquids.load();
+        metdUnitTypes.load();
         metdBlocks.load();
         metdTechTree.load();
         (Blocks.stone).itemDrop = metdItems.stone;
