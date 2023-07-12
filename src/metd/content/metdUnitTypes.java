@@ -26,7 +26,6 @@ import mindustry.world.draw.DrawRegion;
 import mindustry.world.meta.*;
 import metd.content.metdItems.*;
 import metd.content.metdLiquids.*;
-import metd.content.metdStatusEffects.*;
 import metd.content.metdBlocks.*;
 import metd.content.*;
 
@@ -39,7 +38,6 @@ import static mindustry.content.Liquids.*;
 import static mindustry.content.StatusEffects.*;
 import static metd.content.metdItems.*;
 import static metd.content.metdLiquids.*;
-import static metd.content.metdStatusEffects.*;
 import static mindustry.type.ItemStack.*;
 
 public class metdUnitTypes {

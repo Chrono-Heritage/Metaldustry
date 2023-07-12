@@ -4,7 +4,8 @@
     "author": "Chrono",
     "description": "A mod that add more metals and industry blocks.",
     "dependencies": [
-        "multi-crafter"
+        "multi-crafter",
+        "chrono-nucleardustry"
     ],
     "version": "v.0.1",
     "minGameVersion": "142",

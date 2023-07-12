@@ -5,7 +5,6 @@ import arc.math.*;
 import arc.struct.*;
 import metd.content.metdItems.*;
 import metd.content.metdLiquids.*;
-import metd.content.metdStatusEffects.*;
 import metd.content.metdBlocks.*;
 import metd.content.metdUnitTypes.*;
 import metd.content.*;
@@ -58,7 +57,6 @@ import static mindustry.content.Liquids.*;
 import static mindustry.content.StatusEffects.*;
 import static metd.content.metdItems.*;
 import static metd.content.metdLiquids.*;
-import static metd.content.metdStatusEffects.*;
 import static metd.content.metdUnitTypes.*;
 import static mindustry.type.ItemStack.*;
 
@@ -562,7 +560,7 @@ public class metdBlocks {
                 smokeEffect = Fx.shootBigSmoke;
                 hitEffect = Fx.blastExplosion;
                 buildingDamageMultiplier = 0.3f;
-                status = radiation;
+                status = Vars.content.statusEffect("chrono-nucleardustry-radiation");
                 statusDuration = 600;
                 damage = 2000;
                 splashDamage = 1875;

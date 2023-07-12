@@ -2,7 +2,6 @@ package metd;
 
 import metd.content.metdItems;
 import metd.content.metdLiquids;
-import metd.content.metdStatusEffects;
 import metd.content.metdUnitTypes;
 import metd.content.metdBlocks;
 import metd.content.metdTechTree;
@@ -16,7 +15,6 @@ public class metdLoader extends Mod{
 
     @Override
     public void loadContent(){
-        metdStatusEffects.load();
         metdItems.load();
         metdLiquids.load();
         metdUnitTypes.load();
